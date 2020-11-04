@@ -19,6 +19,14 @@ def index(request):
     return render(request, 'home.html', {'result': result, 'global_summary':global_summary, 'countries':countries})
 
 
+def india(request):
 
+    url2 = ('https://api.covidindiatracker.com/total.json')
+    res2 = requests.get(url2).json()
+
+    url = ('https://api.covidindiatracker.com/state_data.json')
+    res = requests.get(url).json()
+
+    return render(request, 'india.html', {'res': res, 'res2':res2})
 
 
